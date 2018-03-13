@@ -1,20 +1,19 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let htmlOptions = {
 	title: "app",
-	filename: "main.html",
+	filename: "index.html",
 	hash: true,
 	showErrors: true,
-	template: "./src/main.html"
+	template: "./src/index.html"
 };
 
 module.exports = {
 	entry: {
-		app: "./src/main.ts"
+		app: "./src/index.ts"
 	},
 	module: {
 		rules: [
@@ -95,20 +94,12 @@ module.exports = {
 		}
 	},
 	plugins: [
-		new CleanWebpackPlugin(["dist"]),
-		new ExtractTextPlugin({
-			filename: "[name].bundle.css"
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "vendor",
-			chunks: ["app"],
-			minChunks: ({ resource }) => /node_modules/.test(resource)
-		}),
-		new HtmlWebpackPlugin(htmlOptions)
+		new HtmlWebpackPlugin(htmlOptions),
+		new ExtractTextPlugin({filename: "[name].css"})
 	],
 	output: {
-		filename: "[name].bundle.js",
-		chunkFilename: "[name]-[chunkhash].js",
+		filename: "[name].js",
+		chunkFilename: "[name].[chunkhash].js",
 		path: path.resolve(__dirname, "dist")
 	}
 };
