@@ -1,0 +1,23 @@
+{
+  "name": "angularjs-webpack",
+  "version": "1.0.0",
+  "description": "AngularJs with Webpack",
+  "main": ".src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitnova-es/angularjs-webpack.git"
+  },
+  "keywords": [
+    "angularjs",
+    "webpack"
+  ],
+  "author": "bitnova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitnova-es/angularjs-webpack/issues"
+  },
+  "homepage": "https://github.com/bitnova-es/angularjs-webpack#readme"
+}
